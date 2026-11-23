@@ -1,0 +1,4 @@
+import Link from "next/link";import {Page} from "../../components/Site";
+export const metadata={title:"Services | Tomas Avaro Acosta"};
+const s=[["OBC assignments","Accompanying shipments on commercial flights, handling check-in, customs and handover."],["Urgent international shipments","Fast-turnaround movement when deadlines cannot slip."],["Hand-carry services","Personal custody of documents, parts or sensitive items."],["Other capabilities","[Only list what you genuinely offer.]"]];
+export default function Services(){return(<Page title="Services" lead="Focused, personally delivered time-critical logistics."><div className="grid">{s.map(([t,d])=><div className="card" key={t}><h3>{t}</h3><p className="mut">{d}</p></div>)}</div><p style={{marginTop:32}}><Link className="btn" href="/contact">Request assistance</Link></p></Page>)}

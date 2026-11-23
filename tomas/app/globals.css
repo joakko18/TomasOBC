@@ -1,0 +1,61 @@
+css
+:root{
+  --bg:#faf9f6; --fg:#0e1c2b; --mut:#515c68; --line:#e4e1d8;
+  --acc:#10294a; --gold:#b98a3e; --soft:#ffffff; --on-gold:#1a1206;
+  --hero1:#0a1a30; --hero2:#16355f;
+  --shadow:0 1px 2px rgba(14,28,43,.05),0 8px 24px rgba(14,28,43,.06);
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#08111c; --fg:#e9eef5; --mut:#97a7b9; --line:#1c2b3d;
+  --acc:#8fb8e6; --gold:#d4a95a; --soft:#0f1b2a; --on-gold:#1a1206;
+  --hero1:#050d17; --hero2:#10294a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 var(--sans),system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--acc)}
+.w{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif),Georgia,serif;font-weight:600;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5.5vw,3.8rem);line-height:1.1;margin:.3em 0}
+h2{font-size:1.8rem;margin-top:2em}
+.sec{padding:72px 24px}.mut{color:var(--mut)}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 15%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .w{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:16px;padding-bottom:16px}
+.brand{font-family:var(--serif),Georgia,serif;font-weight:600;font-size:1.15rem;text-decoration:none;color:var(--fg);letter-spacing:.01em}
+nav{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;letter-spacing:.03em}
+nav a{text-decoration:none;color:var(--mut);padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+nav a:hover{color:var(--fg);border-color:var(--gold)}
+
+/* buttons */
+.btn{display:inline-block;background:var(--gold);color:var(--on-gold);padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--gold);cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(185,138,62,.35)}
+.btn.o{background:transparent;color:var(--acc);border-color:var(--acc)}
+.btn.o:hover{background:var(--acc);color:var(--bg);box-shadow:none}
+
+/* home hero: full-width band without changing markup */
+section.w.sec:first-of-type{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#ced0d4;
+  box-shadow:0 0 0 100vmax var(--hero1);clip-path:inset(0 -100vmax);position:relative;padding-top:110px;padding-bottom:110px}
+section.w.sec:first-of-type::after{content:"";position:absolute;right:-100px;top:-60px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,169,90,.28),transparent 65%);pointer-events:none}
+section.w.sec:first-of-type .mut{color:#b9c7d8}
+section.w.sec:first-of-type > p:first-child{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-size:13px;font-weight:600}
+section.w.sec:first-of-type .btn.o{color:#fff;border-color:rgba(255,255,255,.5)}
+section.w.sec:first-of-type .btn.o:hover{background:#fff;color:var(--hero1)}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--soft);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:14px;padding:26px;box-shadow:var(--shadow);transition:.25s}
+.card:hover{transform:translateY(-3px)}
+.card h3{margin-top:0;font-size:1.2rem}
+.urgent{border-left:4px solid var(--gold);background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 10%,var(--soft)),var(--soft))}
+
+/* form */
+form{display:grid;gap:16px;max-width:580px}
+label{font-size:13px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--mut)}
+input,select,textarea{width:100%;margin-top:6px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--fg);font:inherit;transition:.2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 25%,transparent)}
+
+footer{border-top:1px solid var(--line);padding:36px 0;font-size:14px;color:var(--mut)}
